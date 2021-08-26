@@ -1,0 +1,18 @@
+{
+  "name": "letter-puzzle",
+  "version": "0.1.0",
+  "description": "an electron app that lets you play a crossword-like puzzle",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && electron built/main.js"
+  },
+  "author": "Archrona (http://github.com/archrona)",
+  "license": "GPL-2.0-only",
+  "dependencies": {
+    "electron": "^13.2.2"
+  },
+  "devDependencies": {
+    "typescript": "^4.3.5"
+  }
+}

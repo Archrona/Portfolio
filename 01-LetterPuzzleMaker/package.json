@@ -1,0 +1,11 @@
+{
+  "name": "letter-puzzle-maker",
+  "version": "0.1.0",
+  "description": "A simple library for creating puzzles similar to crosswords, except without hints",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Archrona (http://github.com/archrona)",
+  "license": "GPL-2.0-only"
+}
