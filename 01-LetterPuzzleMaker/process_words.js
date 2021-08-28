@@ -15,9 +15,9 @@ for (const line of text.split(/\r?\n/)) {
     const match = line.match(/^[0-9]+\s+[0-9]+\s+([a-z]+)\s+$/);
     if (match) {
         const word = match[1];
-        if (word.length >= 3 && word.length <= 7) {
+        if (word.length >= 4 && word.length <= 8) {
             words.push(word);
-            if (words.length >= 20000) {
+            if (words.length >= 10000) {
                 break;
             }
         }

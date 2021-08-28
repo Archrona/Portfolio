@@ -183,7 +183,8 @@ var Game = /** @class */ (function () {
         this.selectedRow = -1;
         this.selectedColumn = -1;
         this.selectedHorizontal = true;
-        this.hideHalf = false;
+        this.hideHalf = true;
+        this.givenFraction = 0.0;
         this.newPuzzle(6);
         document.addEventListener("keydown", function (event) {
             _this.tileKey(event.key);
@@ -195,7 +196,7 @@ var Game = /** @class */ (function () {
         });
     }
     Game.prototype.newPuzzle = function (size) {
-        this.answer = new Board(size); //createBoard(1, size)[0];
+        this.answer = createBoard(0.5, size)[0];
         this.createElements(size);
         this.guesses = [];
         this.hideHorizontal = [];
@@ -203,7 +204,7 @@ var Game = /** @class */ (function () {
             this.guesses.push([]);
             this.hideHorizontal.push([]);
             for (var c = 0; c < size; c++) {
-                this.guesses[this.guesses.length - 1].push("");
+                this.guesses[this.guesses.length - 1].push(Math.random() < this.givenFraction && !this.isSolid(r, c) ? this.answer.tiles[r][c].toLowerCase() : "");
                 this.hideHorizontal[this.hideHorizontal.length - 1].push(Math.random() < 0.5);
             }
         }
@@ -214,8 +215,8 @@ var Game = /** @class */ (function () {
         while (this.boardElement.firstChild) {
             this.boardElement.removeChild(this.boardElement.lastChild);
         }
-        this.boardElement.style.gridTemplateColumns = "2fr repeat(" + size + ", 1fr)";
-        this.boardElement.style.gridTemplateRows = "2fr repeat(" + size + ",  1fr)";
+        this.boardElement.style.gridTemplateColumns = "0.6fr repeat(" + size + ", 1fr)";
+        this.boardElement.style.gridTemplateRows = "0.6fr repeat(" + size + ",  1fr)";
         this.boardElement.style.gridGap = "5px";
         this.elements = [];
         var _loop_1 = function (r) {
